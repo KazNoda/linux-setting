@@ -1,0 +1,25 @@
+############## WELCOME MESSAGE ################
+
+function greetings()
+{
+  local MIDNIGHT=`date -d "00:00:00" '+%s'`
+  local MORNING=`date -d "07:00:00" '+%s'`
+  local NOON=`date -d "12:00:00" '+%s'`
+  local EVENING=`date -d "17:00:00" '+%s'`
+  local NIGHT=`date -d "21:00:00" '+%s'`
+
+  local now=`date '+%s'`
+
+
+  if [ $MIDNIGHT -le $now -a $now -le $MORNING ]; then
+    echo "You are working so hard..."
+  elif [ $MORNING -le $now -a $now -le $NOON ]; then
+    echo "Good Morning! Let's start with new world!"
+  elif [ $NOON -le $now -a $now -le $EVENING ]; then
+    echo "Good Evening! You gonna finish your work soon right?"
+  elif [ $EVENING -le $now -a $now -le $NIGHT ]; then
+    echo "Fmmm.. Take it easy..."
+  fi
+
+  exit 0
+}
